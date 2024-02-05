@@ -75,15 +75,56 @@ public class Runner {
         System.out.println("numbers: " + numbers);
 
 //        1. Print out a list of the even integers
+        for(int number : numbers){
+            if(number % 2 == 0){
+                System.out.println(number);
+            }
+        }
+
 //        2. Print the difference between the largest and smallest value
+        Integer maximum_value = numbers.get(0);
+        Integer minimum_value = numbers.get(0);
+        for(int i = 1; i < numbers.size(); i++){
+            if(numbers.get(i) > maximum_value){
+                maximum_value = numbers.get(i);
+            }
+            if(numbers.get(i) < minimum_value){
+                minimum_value = numbers.get(i);
+            }
+        }
+        System.out.println(maximum_value - minimum_value);
+
 //        3. Print True if the list contains a 1 next to a 1 somewhere.
+        String one_next_to_one = "False";
+        for(int i = 0; i < numbers.size() - 1; i++){
+            if(numbers.get(i) == 1 && numbers.get(i + 1) == 1){
+                one_next_to_one = "True";
+                break;
+            }
+        }
+        System.out.println(one_next_to_one);
+
 //        4. Print the sum of the numbers,
+        int sum_of_numbers = 0;
+        for(int number : numbers){
+            sum_of_numbers += number;
+        }
+        System.out.println(sum_of_numbers);
+
 //        5. Print the sum of the numbers...
 //           ...except the number 13 is unlucky, so it does not count...
 //           ...and numbers that come immediately after a 13 also do not count.
 //
 //          So [2, 7, 13, 2] would have sum of 9.
-
+        sum_of_numbers = 0;
+        for(int i = 0; i < numbers.size(); i++){
+            if(numbers.get(i) == 13){
+                i++;
+                continue;
+            }
+            sum_of_numbers += numbers.get(i);
+        }
+        System.out.println(sum_of_numbers);
     }
 
 }
