@@ -15,14 +15,56 @@ public class Runner {
         scottishIslands.add("Tresco");
 
 //        1. Add "Coll" to the end of the list
+        scottishIslands.add("Coll");
+
 //        2. Add "Tiree" to the start of the list
+        scottishIslands.add(0, "Tiree");
+
 //        3. Add "Islay" after "Jura" and before "Mull"
+        String jura = "Jura";
+        String mull = "Mull";
+        // I want to first find "Jura" in the list using a for loop
+        for(int i = 0; i < scottishIslands.size(); i++){
+//          If "Mull" is in the list before "Jura"
+//          break the loop because it wouldn't
+//          be possible to add "Islay" after "Jura"
+            if(scottishIslands.get(i).equals(mull)){
+                break;
+            }
+            if(scottishIslands.get(i).equals(jura)){
+                scottishIslands.add(i + 1, "Islay");
+            }
+        }
+
 //        4. Print out the index position of "Skye"
+        String skye = "Skye";
+        for(int i = 0; i < scottishIslands.size(); i++){
+            if(scottishIslands.get(i).equals(skye)){
+                System.out.println(i);
+            }
+        }
+
 //        5. Remove "Tresco" from the list by name
+        String tresco = "Tresco";
+        scottishIslands.remove(tresco);
+
 //        6. Remove "Arran" from the list by index
+        String arran = "Arran";
+        for(int i = 0; i < scottishIslands.size(); i++){
+            if(scottishIslands.get(i).equals(arran)){
+                scottishIslands.remove(i);
+            }
+        }
+
 //        7. Print the number of islands in your arraylist
+        System.out.println(scottishIslands.size());
 //        8. Sort the list alphabetically
+        Collections.sort(scottishIslands);
+
 //        9. Print out all the islands using a for loop
+        for(String island : scottishIslands){
+            System.out.println(island);
+        }
 
         System.out.println(scottishIslands);
 
